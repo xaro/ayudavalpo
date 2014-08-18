@@ -1,0 +1,73 @@
+!!!
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+
+    %title= current_page.data.title || "Mapa Informativo Ayuda Valpo"
+
+    %meta{property: "og:title", content: "Mapa Informativo Ayuda Valpo - Informando a voluntarios"}
+    %meta{property: "og:url", content: "http://mapa.ayudavalpo.com"}
+    %meta{property: "og:description", content: "Infórmate acerca de los lugares que necesitan tu ayuda en este momento"}
+    %meta{property: "og:type", content: "website"}
+    %meta{property: "og:site_name", content: "Mapa Informativo Ayuda Valpo"}
+    %meta{property: "og:image", content: "#{image_url "facebook_og.png"}"}
+
+    %meta{property: "twitter:title", content: "Ayuda Valpo - Informando a voluntarios"}
+    %meta{property: "twitter:url", content: "http://ayudavalpo.com"}
+    %meta{property: "twitter:description", content: "Infórmate acerca de los lugares que necesitan tu ayuda en este momento"}
+
+    %link{ href:'http://fonts.googleapis.com/css?family=Roboto', rel:'stylesheet', type:'text/css'}
+    = stylesheet_link_tag "normalize"
+    = stylesheet_link_tag "foundation.min"
+    = stylesheet_link_tag "application"
+
+  %body{class: page_classes}
+
+    = link_to "Ir a AyudaValpo.com", "http://ayudavalpo.com", class: "button tiny btn-ayudavalpo"
+
+    .map-legend
+      .title.clearfix
+        .left Simbología
+        .right +
+      %ul.no-bullet.legend.hide
+        %li
+          .bullet.acop
+          Centros de acopio
+          %ul.no-bullet
+            %li
+              .bullet.acop-1
+              Se necesita ayuda con urgencia
+            %li
+              .bullet.acop-2
+              Se necesita continuar con la ayuda
+            %li
+              .bullet.acop-3
+              Meta cumplida, no se necesita ayuda
+        %li
+          .bullet.alb
+          Albergues
+          %ul.no-bullet
+            %li
+              .bullet.alb-1
+              Se necesita ayuda con urgencia
+            %li
+              .bullet.alb-2
+              Se necesita continuar con la ayuda
+            %li
+              .bullet.alb-3
+              Meta cumplida, no se necesita ayuda
+
+    = yield
+
+    = javascript_include_tag  "vendor/jquery"
+    = javascript_include_tag  "map"
+    :javascript
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-50124717-1', 'ayudavalpo.com');
+      ga('send', 'pageview');

@@ -1,0 +1,91 @@
+.small-info {
+  color: gray;
+  font-size: 0.8rem;
+
+  a {
+    color: gray;
+    font-weight: bold;
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.content {
+  white-space: pre-line;
+}
+
+hr.dotted {
+  border-style: dashed;
+}
+
+.inline {
+  float: left;
+}
+
+// Map view
+.btn-ayudavalpo {
+  top: 0;
+  right: 55px;
+  z-index: 1;
+  position: fixed;
+  height: 27px;
+  padding-top: 0.5rem !important;
+}
+
+.map {
+  position: static;
+  padding-bottom: 0;
+}
+
+.map-legend {
+  width: 150px;
+  font-family: Roboto,Arial,sans-serif;
+  margin-top: 23px;
+  margin-right: 24px;
+  border-radius: 2px;
+  padding: 4px 16px;
+  background-color: #fff;
+  top: 27px;
+  right: 0;
+  z-index: 1;
+  position: fixed;
+  max-height: 80%;
+  font-size: 13px;
+  color: #444;
+  
+  &.expanded {
+    width: 290px;
+  }
+
+  .title {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #222;
+    cursor: pointer;
+  }
+  ul {
+    font-size: 13px;
+    margin-bottom: 8px;
+
+    .bullet {
+      height: 18px;
+      width: 18px;
+      margin-right: 3px;
+      margin-top: 1px;
+      float: left;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      &.acop { background-image: url(/images/map/acop.png); }
+      &.acop-1 { background-image: url(/images/map/acop-1.png); }
+      &.acop-2 { background-image: url(/images/map/acop-2.png); }
+      &.acop-3 { background-image: url(/images/map/acop-3.png); }
+      &.alb { background-image: url(/images/map/alb.png); }
+      &.alb-1 { background-image: url(/images/map/alb-1.png); }
+      &.alb-2 { background-image: url(/images/map/alb-2.png); }
+      &.alb-3 { background-image: url(/images/map/alb-3.png); }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+!!!
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+
+    %title= current_page.data.title || "Ayuda Valpo - Informando a voluntarios"
+
+    %meta{property: "og:title", content: "Ayuda Valpo - Informando a voluntarios"}
+    %meta{property: "og:url", content: "http://ayudavalpo.com"}
+    %meta{property: "og:description", content: "Infórmate acerca de los lugares que necesitan tu ayuda en este momento"}
+    %meta{property: "og:type", content: "website"}
+    %meta{property: "og:site_name", content: "Ayuda Valpo"}
+    %meta{property: "og:image", content: "#{image_url "facebook_og.png"}"}
+
+    %meta{property: "twitter:title", content: "Ayuda Valpo - Informando a voluntarios"}
+    %meta{property: "twitter:url", content: "http://ayudavalpo.com"}
+    %meta{property: "twitter:description", content: "Infórmate acerca de los lugares que necesitan tu ayuda en este momento"}
+
+    = stylesheet_link_tag "normalize"
+    = stylesheet_link_tag "foundation.min"
+    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    = javascript_include_tag  "vendor/modernizr"
+
+  %body{class: page_classes}
+
+    %nav.top-bar{data: {topbar: true}}
+      %ul.title-area
+        %li.name
+          %h1
+            %a{href: "/"} Ayuda Valpo
+        %li.toggle-topbar.menu-icon
+          %a{href: "#"} Menú
+      %section.top-bar-section
+        %ul.left
+          %li.hide-for-small-only.active
+            = link_to "Mapa Informativo", "http://mapa.ayudavalpo.com"
+        %ul.right
+          %li
+            %button.right{data:{ reveal_id: "add", reveal: true }}
+              %i.fa.fa-plus
+              Añadir llamado de ayuda
+
+    = yield
+
+  = javascript_include_tag  "vendor/jquery"
+  = javascript_include_tag  "vendor/urlify"
+  = javascript_include_tag  "vendor/moment"
+  = javascript_include_tag  "vendor/autolinker"
+  = javascript_include_tag  "foundation.min"
+  = javascript_include_tag  "foundation/foundation.reveal"
+  = javascript_include_tag  "//www.parsecdn.com/js/parse-1.2.18.min.js"
+  = javascript_include_tag  "vendor/knockout"
+  = javascript_include_tag  "application"
+  :javascript
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-50124717-1', 'ayudavalpo.com');
+    ga('send', 'pageview');

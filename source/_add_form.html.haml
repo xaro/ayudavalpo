@@ -1,0 +1,60 @@
+#add.reveal-modal{data: { reveal: true }}
+  %p.lead Agregar información
+  %p Por favor, ingresa sólo información verídica, ya que de lo contrario podrá afectar en la organización de los voluntarios
+
+  %form{ data: { bind: "submit: saveComment" } }
+    .row
+      .small-12
+        .row
+          .small-3.columns
+            %label.right.inline{for: "right-label"} Lugar
+          .small-9.columns
+            %select.place{ data: { bind: "options: places, optionsText: 'name', optionsValue: 'id', optionsCaption: 'Elige un lugar'" }, required: true }
+
+    .row
+      .small-12
+        .row
+          .small-3.columns
+            %label.right.inline{for: "right-label"} Comentario
+          .small-9.columns
+            %textarea.content{rows: 6, required: true, placeholder: "Favor intentar dar la ubicación precisa, qué se necesita, hora, qué implementos se necesitan para trabajar"}
+
+    .row
+      .small-12
+        .row
+          .small-3.columns
+            %label.right{for: "right-label"}
+              Teléfono
+              .small-info Opcional
+          .small-9.columns
+            %input.phone{type: "text", placeholder: "En caso de cualquier duda sobre tu información"}
+
+    .row
+      .small-12
+        .row
+          .small-3.columns
+            %label.right{for: "right-label"}
+              Email
+              .small-info Opcional
+          .small-9.columns
+            %input.email{type: "email", placeholder: "En caso de cualquier duda sobre tu información"}
+
+    .row
+      .small-12
+        .row
+          .small-3.columns
+            %label.right.inline{for: "right-label"} Estado
+          .small-9.columns
+            %select.status
+              %option{value: "1"} Sin información
+              %option{value: "2"} No se necesitan más voluntarios
+              %option{value: "3"} Se necesitarán voluntarios más tarde
+              %option{value: "4"} Se necesitan voluntarios ahora
+
+
+
+    .row
+      .small-12
+        %button.button.right Enviar
+
+  %a.close-reveal-modal ×

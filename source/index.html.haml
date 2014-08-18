@@ -1,0 +1,57 @@
+---
+title:
+---
+
+%br
+.row
+  .large-10.large-centered.columns
+    %p
+      En esta página se muestra
+      %strong información
+      sobre los distintos
+      %strong lugares
+      que funcionan con ayuda de voluntarios. Podrás ver comentarios
+      de distintas personas sobre el
+      %strong estado actual
+      del lugar y saber si es necesaria más ayuda de parte de los voluntarios en este momento.
+    %p La información es entregada por los usuarios libremente, si encuentras algo incorrecto por favor comenta para rectificarlo.
+
+    %p Si deseas que se agregue un nuevo lugar, sugerencias o comentarios, escribir a #{mail_to "lugares@ayudavalpo.com"} con su respectivo nombre y dirección.
+
+%br
+.comments{ data: { bind: "foreach: comments" } }
+  .comment
+    .row
+      .large-10.large-centered.columns
+        %hr.dotted
+
+    .row
+      .large-8.large-centered.columns
+        .clearfix
+          .p.left
+            %h3{ data: { bind: "text: place" } }
+            .small-info
+              .createdat{ data: { bind: "text: humanCreatedAt" } }
+              .info
+                %i.fa.fa-phone.inline{ data: { bind: "visible: phone" } } &nbsp;
+                .phone{ data: { bind: "text: phone" } }
+                %i.fa.fa-envelope.inline{ data: { bind: "visible: email" } } &nbsp;
+                .email.inline{ data: { bind: "text: email" } }
+          / ko if: status === '1'
+          %span.label.secondary.right Sin información
+          / /ko
+          / ko if: status === '2'
+          %span.label.alert.right No se necesitan
+          / /ko
+          / ko if: status === '3'
+          %span.label.default.right Se necesitarán más tarde
+          / /ko
+          / ko if: status === '4'
+          %span.label.success.right Se necesitan ahora
+          / /ko
+    %br
+    .row
+      .large-8.large-centered.columns
+        %p.content{ data: { bind: "html: content" } }
+
+= partial "add_form"
